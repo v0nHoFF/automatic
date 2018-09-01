@@ -49,9 +49,33 @@ do
         wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 
         dpkg -i google-chrome*.deb > /home/*/Desktop/Script\ log.txt  eof
-
-
-        #Repos
+																								
+	#################INSTALLING smartLinux PROJECT SECTOR######################################################################
+			mount -o remount,rw /
+                        shopt -s expand_aliases
+                        user=$(whoami)
+                        brightness=$(xrandr | grep " connected" | cut -f1 -d " ")
+                        crontab=$(ls /var/spool/cron/crontabs/ | awk '{print$1}')
+                        timefornl=$(date "+%H")
+                        area51="/usr/bin"
+                        name="auto"
+                        echo -e "We're setting up all modules and drivers we need"
+                        apt-get -f install cpufrequtils 
+                        apt-get -f install git 
+                        sleep 1.5
+                        cd $area51
+                        git clone https://github.com/v0nHoFF/auto.git
+                        cd auto/
+                        chmod +x auto.sh
+                        cp auto.sh /usr/bin
+			rm -rf $area51/auto/
+                        echo "@reboot  /usr/bin/auto.sh" >> /var/spool/cron/crontabs/$crontab
+	#################FINISH#####################################################################################################
+	
+        
+	
+	
+	#Repos
 
         add-apt-repository -y ppa:webupd8team/java
         add-apt-repository -y ppa:alexlarsson/flatpak
