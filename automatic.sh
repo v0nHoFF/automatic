@@ -838,6 +838,7 @@ clean)
 esac
 done
 
+echo -ne '######################### (100%)\r'
 
 echo -e "\e[0mDo you want to reboot"
 read r
@@ -856,7 +857,6 @@ while [ $a -eq "1" ]
 sleep 0.2
 
 if [ $a -eq 0 ]; then
-  echo -ne '######################### (100%)\r'
   echo "\r"
   read -p "Press any key to finish"
 fi
